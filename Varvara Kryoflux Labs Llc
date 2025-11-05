@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Varvara Organization</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 800px;
+      background: white;
+      padding: 30px;
+      margin: 40px auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #005b99;
+      text-align: center;
+    }
+    .logo {
+      display: block;
+      margin: auto;
+      width: 140px;
+      height: auto;
+    }
+    p {
+      font-size: 16px;
+      color: #333;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Arboreal_tree_icon.svg/2048px-Arboreal_tree_icon.svg.png" alt="Organization Logo">
+    <h1>Varvara Organization</h1>
+
+    <p><strong>Organization Name:</strong> Varvara</p>
+    <p><strong>Country:</strong> United States</p>
+    <p><strong>City:</strong> —</p>
+    <p><strong>Contact Email:</strong> mxdhgtu@gmail.com</p>
+    <p><strong>Phone:</strong> +1 202 559 6252</p>
+
+    <p>This is the official organization website for Varvara, used for publishing and verifying mobile applications on the Google Play Store.</p>
+  </div>
+</body>
+</html>
