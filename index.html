@@ -1,42 +1,276 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Varvara Organization</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Varvara Organization — Innovation & Apps</title>
+  <meta name="description" content="Official website for Varvara Organization. We build modern mobile apps and simple digital products." />
+  <link rel="preconnect" href="https://images.unsplash.com" />
   <style>
-    body { font-family: Arial, sans-serif; background:#f7f7f7; margin:0 }
-    .container { max-width:900px; margin:40px auto; background:#fff; padding:32px; border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,.08) }
-    h1 { margin-top:0; color:#0a4d7a }
-    .hero { display:flex; gap:24px; align-items:center; margin-bottom:16px }
-    .hero img { width:96px; height:96px; border-radius:16px; object-fit:cover }
-    .grid { display:grid; grid-template-columns:160px 1fr; gap:8px 18px }
-    .label { color:#555; font-weight:bold }
-    footer { text-align:center; color:#666; margin:24px 0 8px }
+    :root{
+      --brand:#0b5;           /* main accent */
+      --brand-dark:#0a4a35;
+      --ink:#0f172a;          /* heading text */
+      --muted:#475569;        /* body text */
+      --bg:#ffffff;
+      --card:#f8fafc;
+      --border:#e2e8f0;
+      --ring:#a7f3d0;
+      --shadow:0 10px 30px rgba(2, 6, 23, .08);
+      --radius:18px;
+      --max:1200px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0}
+    body{
+      font-family:ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--muted);
+      background:var(--bg);
+      line-height:1.6;
+    }
+    a{color:var(--brand);text-decoration:none}
+    a:hover{opacity:.9}
+    .container{max-width:var(--max);margin:auto;padding:0 20px}
+    /* NAV */
+    .nav{
+      position:sticky;top:0;z-index:50;
+      background:#fff;border-bottom:1px solid var(--border);
+      backdrop-filter:saturate(180%) blur(8px);
+    }
+    .nav-in{
+      display:flex;align-items:center;justify-content:space-between;
+      height:72px;
+    }
+    .logo{display:flex;align-items:center;gap:12px;color:var(--ink);font-weight:800;font-size:20px;letter-spacing:.2px}
+    .logo-badge{
+      width:38px;height:38px;border-radius:12px;
+      background:linear-gradient(135deg, var(--brand) 0%, #13c296 100%);
+      display:grid;place-items:center;color:#fff;font-weight:900;box-shadow:var(--shadow)
+    }
+    .nav a.link{color:var(--ink);font-weight:600;margin-left:24px}
+    .cta{
+      margin-left:22px;background:var(--brand);color:#fff;
+      padding:10px 16px;border-radius:12px;font-weight:700;box-shadow:var(--shadow)
+    }
+    /* HERO */
+    .hero{
+      display:grid;grid-template-columns:1.15fr .85fr;gap:32px;
+      align-items:center;padding:64px 0 40px;
+    }
+    .hero h1{color:var(--ink);font-size:44px;line-height:1.12;margin:0 0 12px}
+    .eyebrow{display:inline-block;background:#ecfeff;color:#0f766e;font-weight:800;letter-spacing:.4px;
+      border:1px solid #99f6e4;border-radius:999px;padding:6px 12px;font-size:12px;margin-bottom:14px}
+    .hero p{font-size:18px;color:var(--muted);margin:0 0 22px}
+    .hero .actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;align-items:center;gap:8px;border-radius:12px;
+      padding:12px 16px;border:1px solid var(--border);font-weight:700;color:var(--ink);background:#fff
+    }
+    .btn.primary{background:var(--brand);border-color:transparent;color:#fff}
+    .banner{
+      border-radius:20px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow)
+    }
+    .banner img{width:100%;height:100%;object-fit:cover;display:block}
+    /* STRIP */
+    .strip{padding:26px 0 8px;color:#475569;font-size:13px}
+    .strip .logos{display:flex;flex-wrap:wrap;gap:18px;opacity:.75}
+    .pill{border:1px dashed var(--border);border-radius:999px;padding:8px 12px;background:#fff}
+    /* SECTIONS */
+    section{padding:56px 0}
+    .section-title{color:var(--ink);font-size:32px;margin:0 0 8px}
+    .section-sub{margin:0 0 28px}
+    /* CARDS */
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{
+      background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+      overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column
+    }
+    .card img{width:100%;height:180px;object-fit:cover}
+    .card .pad{padding:16px}
+    .card h3{margin:0 0 6px;color:var(--ink)}
+    .card p{margin:0 0 4px}
+    /* GRID */
+    .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .tile{
+      background:#fff;border:1px solid var(--border);border-radius:16px;padding:16px;box-shadow:var(--shadow)
+    }
+    .tile h4{margin:0 0 6px;color:var(--ink)}
+    /* ABOUT */
+    .about{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+    .about p{margin:0}
+    .about .box{border:1px solid var(--border);border-radius:16px;padding:16px;background:#fff}
+    /* CONTACT */
+    .contact{
+      display:grid;grid-template-columns:1.2fr .8fr;gap:18px
+    }
+    .note{
+      border-left:4px solid var(--brand);padding:10px 14px;background:#f0fdf4;border-radius:10px
+    }
+    .panel{border:1px solid var(--border);border-radius:16px;padding:16px;background:#fff}
+    .list{list-style:none;padding:0;margin:0}
+    .list li{padding:8px 0;border-bottom:1px dashed var(--border)}
+    .list li:last-child{border-bottom:0}
+    /* FOOTER */
+    footer{margin-top:36px;padding:24px 0;border-top:1px solid var(--border);font-size:14px}
+    .muted{opacity:.7}
+    /* RESPONSIVE */
+    @media (max-width: 1000px){
+      .hero{grid-template-columns:1fr;gap:16px}
+      .about,.contact{grid-template-columns:1fr}
+      .cards{grid-template-columns:repeat(2,1fr)}
+      .grid-4{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width: 640px){
+      .nav a.link{display:none}
+      .cards{grid-template-columns:1fr}
+      .grid-4{grid-template-columns:1fr}
+      .hero h1{font-size:34px}
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="hero">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Arboreal_tree_icon.svg/512px-Arboreal_tree_icon.svg.png" alt="Logo">
+  <!-- NAV -->
+  <div class="nav">
+    <div class="container nav-in">
+      <div class="logo">
+        <div class="logo-badge">V</div>
+        Varvara Organization
+      </div>
       <div>
-        <h1>Varvara Organization</h1>
-        <div>Official organization site for Google Play publishing.</div>
+        <a class="link" href="#offer">Offer</a>
+        <a class="link" href="#applications">Applications</a>
+        <a class="link" href="#about">About</a>
+        <a class="link" href="#contact">Contact</a>
+        <a class="cta" href="#contact">Get in touch</a>
       </div>
     </div>
-
-    <div class="grid">
-      <div class="label">Organization Name:</div><div>Varvara</div>
-      <div class="label">Country:</div><div>United States</div>
-      <div class="label">City:</div><div>—</div>
-      <div class="label">Contact Email:</div><div><a href="mailto:mxdhgtu@gmail.com">mxdhgtu@gmail.com</a></div>
-      <div class="label">Phone:</div><div>+1 202 559 6252</div>
-    </div>
-
-    <p style="margin-top:18px">
-      This site is used to verify our identity and provide support details for apps published by Varvara on the Google Play Store.
-    </p>
-
-    <footer>© Varvara</footer>
   </div>
+
+  <!-- HERO -->
+  <header class="container hero">
+    <div>
+      <span class="eyebrow">Official site</span>
+      <h1>Simple digital products & mobile apps — thoughtfully built.</h1>
+      <p>We design and ship clean, privacy-friendly apps. This site confirms our developer identity for Google Play and provides contact details for support.</p>
+      <div class="actions">
+        <a href="#offer" class="btn primary">View our offer</a>
+        <a href="#contact" class="btn">Contact</a>
+      </div>
+    </div>
+    <div class="banner" aria-hidden="true">
+      <img
+        alt="Hero preview"
+        src="https://images.unsplash.com/photo-1529101091764-c3526daf38fe?q=80&w=1400&auto=format&fit=crop"
+      />
+    </div>
+  </header>
+
+  <!-- TRUST STRIP -->
+  <div class="strip">
+    <div class="container logos">
+      <div class="pill">Google Play Developer Identity</div>
+      <div class="pill">Fast responses</div>
+      <div class="pill">Privacy-first</div>
+      <div class="pill">Made in USA</div>
+    </div>
+  </div>
+
+  <!-- OFFER -->
+  <section id="offer" class="container">
+    <h2 class="section-title">Our Offer</h2>
+    <p class="section-sub">Lean apps and small utilities. Here are the kinds of things we ship.</p>
+
+    <div class="cards">
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1510511459019-5dda7724fd87?q=80&w=1200&auto=format&fit=crop" alt="">
+        <div class="pad">
+          <h3>Mobile Utilities</h3>
+          <p>Small, reliable tools that solve a single problem well.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" alt="">
+        <div class="pad">
+          <h3>Educational Mini-apps</h3>
+          <p>Lightweight learning experiences, quizzes, and references.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200&auto=format&fit=crop" alt="">
+        <div class="pad">
+          <h3>Web Widgets</h3>
+          <p>Embeddable bite-size web tools, docs, and status pages.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- APPLICATIONS -->
+  <section id="applications" class="container">
+    <h2 class="section-title">Applications</h2>
+    <p class="section-sub">Example areas where we use our tech.</p>
+
+    <div class="grid-4">
+      <div class="tile">
+        <h4>Learning & Quizzes</h4>
+        <p>Simple, low-friction knowledge checks and study helpers.</p>
+      </div>
+      <div class="tile">
+        <h4>Productivity</h4>
+        <p>Timers, converters, and everyday utilities.</p>
+      </div>
+      <div class="tile">
+        <h4>Offline-first Tools</h4>
+        <p>Works without a connection whenever possible.</p>
+      </div>
+      <div class="tile">
+        <h4>Privacy-friendly</h4>
+        <p>No unnecessary data collection. Clear permissions.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="container">
+    <h2 class="section-title">About Varvara</h2>
+    <div class="about">
+      <div class="box">
+        <p>Varvara Organization builds clean, minimal apps with a focus on clarity and respect for users. We publish on Google Play under our verified developer account.</p>
+      </div>
+      <div class="box">
+        <p><strong>Company scope.</strong> Small utilities, education aids, and internal tools. We move carefully, fix bugs fast, and keep things simple.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="container">
+    <h2 class="section-title">Contact</h2>
+    <div class="contact">
+      <div class="panel">
+        <div class="note">For support requests, please include your app name and device model.</div>
+        <ul class="list" style="margin-top:8px">
+          <li><strong>Email:</strong> <a href="mailto:mxdhgtu@gmail.com">mxdhgtu@gmail.com</a></li>
+          <li><strong>Phone:</strong> +1 202 559 6252</li>
+          <li><strong>Country:</strong> United States</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h4 style="margin:0 0 8px;color:var(--ink)">Publisher details</h4>
+        <p style="margin:0">Varvara Organization<br/>Official website used to verify our identity for apps published on Google Play.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
+      <div>© <span id="y"></span> Varvara Organization</div>
+      <div class="muted">Built with GitHub Pages</div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 </body>
 </html>
